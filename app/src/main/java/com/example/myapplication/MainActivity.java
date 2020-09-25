@@ -23,24 +23,24 @@ public class MainActivity extends AppCompatActivity {
         weight.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                int ounces = Integer.parseInt(v.getText().toString());
+                int ounce = Integer.parseInt(v.getText().toString());
                 double baseCost = 3.00, addedCost = 0.00;
 
-                if(ounces > 30) {
+                if(ounce > 30) {
                     baseCost = 4.00;
                 }
 
-                ounces -= 16;
-                while(ounces > 0) {
-                    ounces -= 4;
+                ounce -= 16;
+                while(ounce > 0) {
+                    ounce -= 4;
                     addedCost += 0.50;
                 }
 
-                double total = baseCost + addedCost;
+                double totalCost = baseCost + addedCost;
                 String report = "";
                 report += "Base Cost: " + baseCost + "\n";
                 report += "Added Cost: " + addedCost + "\n";
-                report += "Total Shipping-Cost: " + total + "\n";
+                report += "Total Shipping-Cost: " + totalCost + "\n";
                 summary.setText(report);
                 return false;
             }
